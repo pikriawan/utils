@@ -1,0 +1,9 @@
+#!/bin/bash
+node -e 'const os=require("node:os"),interfaces=os.networkInterfaces(),names=Object.keys(interfaces);for(const e of names)for(const s of interfaces[e])"IPv4"!=s.family||s.internal||console.log(s.address);'
+
+gst-launch-1.0 -v \
+udpsrc port=5004 caps="application/x-rtp,media=audio,encoding-name=OPUS,payload=96" ! \
+rtpopusdepay ! \
+opusdec ! \
+audioconvert ! \
+autoaudiosink

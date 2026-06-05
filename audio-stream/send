@@ -1,0 +1,26 @@
+#!/bin/bash
+HOST=$1
+SOURCE=$2
+
+usage() {
+    echo "Usage: send HOST [SOURCE]"
+}
+
+if [ -z "$HOST" ]; then
+    usage
+    exit 1
+fi
+
+if [ -z "$SOURCE" ]; then
+    SOURCE=$(pactl get-default-source)
+fi
+
+echo "Streaming audio from $SOURCE to $HOST..."
+
+gst-launch-1.0 \
+pulsesrc device=$SOURCE ! \
+audioconvert ! \
+audioresample ! \
+opusenc bitrate=128000 ! \
+rtpopuspay ! \
+udpsink host=$HOST port=5004

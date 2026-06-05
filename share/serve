@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+const fs = require("fs");
+const http = require("http");
+const os = require("os");
+const path = require("path");
+
+const file = process.argv[2];
+const port = 3000;
+
+if (file === undefined) {
+    console.log("Usage: serve FILE");
+    process.exit(1);
+}
+
+if (!fs.existsSync(file)) {
+    console.log(`${file} doesn't exist`);
+    process.exit(1);
+}
+
+const server = http.createServer((req, res) => {
+    const stat = fs.statSync(file);
+
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+
+    const stream = fs.createReadStream(file);
+    stream.pipe(res);
+});
+
+server.listen(port, () => {
+    const interfaces = os.networkInterfaces();
+    const names = Object.keys(interfaces);
+
+    for (const name of names) {
+        for (const entry of interfaces[name]) {
+            if (entry.family == "IPv4" && !entry.internal) {
+                console.log(`${entry.address}:${port}`);
+            }
+        }
+    }
+});
