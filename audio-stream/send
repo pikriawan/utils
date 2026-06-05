@@ -2,12 +2,8 @@
 HOST=$1
 SOURCE=$2
 
-usage() {
-    echo "Usage: send HOST [SOURCE]"
-}
-
 if [ -z "$HOST" ]; then
-    usage
+    echo "Usage: send HOST [SOURCE]"
     exit 1
 fi
 
