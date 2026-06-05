@@ -1,7 +1,7 @@
-Alat untuk menampilkan dan mengirim file.
+Alat untuk menampilkan dan mengirim file melalui jaringan lokal.
 
 ### Bahan yang Diperlukan
-Perangkat pengirim harus terinstal `nodejs`.
+Perangkat pengirim harus terinstal `nodejs`. Kedua perangkat harus terhubung melalui jaringan lokal yang sama.
 
 ### Cara Penggunaan
 Pengirim file:
