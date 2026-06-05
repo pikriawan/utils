@@ -11,5 +11,5 @@ Penerima audio:
 
 Pengirim audio:
 ```bash
-./send ALAMAT_IP_PENERIMA_AUDIO
+./send IP_PENERIMA
 ```

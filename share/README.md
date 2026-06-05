@@ -10,7 +10,7 @@ Pengirim file:
 ```
 
 Penerima file:
-Akses http://IP_PENGIRIM_FILE:3000 untuk mendownload file.
+Akses `http://IP_PENGIRIM:3000` untuk mendownload file.
 
 Bisa juga digunakan untuk menampilkan file dalam bentuk plaintext:
 ```bash
