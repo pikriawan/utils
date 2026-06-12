@@ -1,7 +1,7 @@
 Stream audio ke perangkat lain melalui jaringan lokal.
 
 ### Bahan yang Diperlukan
-Pastikan kedua perangkat terinstal `gstreamer`, `gstreamer-plugins-good`, `gstreamer-plugins-bad`, dan `gstreamer-plugins-ugly`. Kedua perangkat harus terhubung melalui jaringan lokal yang sama.
+Perangkat penerima harus terinstal `nodejs`. Kedua perangkat harus terinstal `gstreamer`, `gstreamer-plugins-good`, `gstreamer-plugins-bad`, dan `gstreamer-plugins-ugly`. Kedua perangkat harus terhubung melalui jaringan lokal yang sama.
 
 ### Cara Penggunaan
 Penerima audio:
